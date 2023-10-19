@@ -4,95 +4,95 @@ const prisma = new PrismaClient();
 
 async function main() {
   try {
-    // const mousesCategory = await prisma.category.create({
-    //   data: {
-    //     name: "Mouses",
-    //     slug: "mouses",
-    //     imageUrl: "https://fsw-store.s3.sa-east-1.amazonaws.com/mouses.png",
-    //   },
-    // });
+    const mousesCategory = await prisma.category.create({
+      data: {
+        name: "Mouses",
+        slug: "mouses",
+        imageUrl: "https://fsw-store.s3.sa-east-1.amazonaws.com/mouses.png",
+      },
+    });
 
-    // const mouses = [
-    //   {
-    //     name: "Logitech MX Master 3s",
-    //     slug: "logitech-mx-master-3s",
-    //     description:
-    //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
-    //     imageUrls: [
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/01_mx-master-3s.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/02_mx-master-3s.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/03_mx-master-3s.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/04_mx-master-3s.png",
-    //     ],
-    //     basePrice: 650,
-    //     categoryId: mousesCategory.id,
-    //     discountPercentage: 10, // 10% discount
-    //   },
-    //   {
-    //     name: "Logitech Pro X Superlight",
-    //     slug: "logitech-pro-x-superlight",
-    //     description:
-    //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
-    //     imageUrls: [
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/01_logi-superlight.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/02_logi-superlight.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/03_logi-superlight.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/04_logi-superlight.png",
-    //     ],
-    //     basePrice: 750,
-    //     categoryId: mousesCategory.id,
-    //     discountPercentage: 5, // 5% discount
-    //   },
-    //   {
-    //     name: "Logitech G305 Lightspeed",
-    //     slug: "logitech-g305-lightspeed",
-    //     description:
-    //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
-    //     imageUrls: [
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/01_logi-lightspeed.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/02_logi-lightspeed.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/03_logi-lightspeed.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/04_logi-lightspeed.png",
-    //     ],
-    //     basePrice: 300,
-    //     categoryId: mousesCategory.id,
-    //     discountPercentage: 15, // 15% discount
-    //   },
-    //   {
-    //     name: "Hyperx Pulsefire Dart",
-    //     slug: "hyperx-pulsefire-dart",
-    //     description:
-    //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
-    //     imageUrls: [
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/01_hyperx-dart.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/02_hyperx-dart.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/03_hyperx-dart.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/04_hyperx-dart.png",
-    //     ],
-    //     basePrice: 600,
-    //     categoryId: mousesCategory.id,
-    //     discountPercentage: 10, // 10% discount
-    //   },
-    //   {
-    //     name: "Razer Deathadder V2 Pro",
-    //     slug: "razer-deathadder-v2-pro",
-    //     description:
-    //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
-    //     imageUrls: [
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/01_razer-deathadder.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/02_razer-deathadder.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/03_razer-deathadder.png",
-    //       "https://fsw-store.s3.sa-east-1.amazonaws.com/04_razer-deathadder.png",
-    //     ],
-    //     basePrice: 350,
-    //     categoryId: mousesCategory.id,
-    //     discountPercentage: 0,
-    //   },
-    // ];
+    const mouses = [
+      {
+        name: "Logitech MX Master 3s",
+        slug: "logitech-mx-master-3s",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
+        imageUrls: [
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/01_mx-master-3s.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/02_mx-master-3s.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/03_mx-master-3s.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/04_mx-master-3s.png",
+        ],
+        basePrice: 650,
+        categoryId: mousesCategory.id,
+        discountPercentage: 10, // 10% discount
+      },
+      {
+        name: "Logitech Pro X Superlight",
+        slug: "logitech-pro-x-superlight",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
+        imageUrls: [
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/01_logi-superlight.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/02_logi-superlight.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/03_logi-superlight.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/04_logi-superlight.png",
+        ],
+        basePrice: 750,
+        categoryId: mousesCategory.id,
+        discountPercentage: 5, // 5% discount
+      },
+      {
+        name: "Logitech G305 Lightspeed",
+        slug: "logitech-g305-lightspeed",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
+        imageUrls: [
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/01_logi-lightspeed.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/02_logi-lightspeed.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/03_logi-lightspeed.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/04_logi-lightspeed.png",
+        ],
+        basePrice: 300,
+        categoryId: mousesCategory.id,
+        discountPercentage: 15, // 15% discount
+      },
+      {
+        name: "Hyperx Pulsefire Dart",
+        slug: "hyperx-pulsefire-dart",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
+        imageUrls: [
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/01_hyperx-dart.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/02_hyperx-dart.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/03_hyperx-dart.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/04_hyperx-dart.png",
+        ],
+        basePrice: 600,
+        categoryId: mousesCategory.id,
+        discountPercentage: 10, // 10% discount
+      },
+      {
+        name: "Razer Deathadder V2 Pro",
+        slug: "razer-deathadder-v2-pro",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
+        imageUrls: [
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/01_razer-deathadder.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/02_razer-deathadder.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/03_razer-deathadder.png",
+          "https://fsw-store.s3.sa-east-1.amazonaws.com/04_razer-deathadder.png",
+        ],
+        basePrice: 350,
+        categoryId: mousesCategory.id,
+        discountPercentage: 0,
+      },
+    ];
 
-    // await prisma.product.createMany({
-    //   data: mouses,
-    // });
+    await prisma.product.createMany({
+      data: mouses,
+    });
 
     const keyboardsCategory = await prisma.category.create({
       data: {
