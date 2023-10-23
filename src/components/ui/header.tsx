@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarImage, AvatarFallback } from "./avatar";
 import { Separator } from "./separator";
+import Link from 'next/link'
 
 
 const Header = () => {
@@ -91,7 +92,9 @@ const Header = () => {
         </Sheet>
 
         <h1 className="text-lg font-semibold">
-          <span className="text-primary">FSW</span>Store
+          <Link href="/">
+            <span className="text-primary">FSW</span>Store
+          </Link>
         </h1>
 
         <Button size="icon" variant="outline">
