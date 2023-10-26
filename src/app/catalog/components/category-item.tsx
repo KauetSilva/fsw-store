@@ -11,6 +11,7 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
     <Link href={`/category/${category.slug}`}>
       <div className="flex flex-col">
         <div className="flex h-[150px] w-full items-center justify-center rounded-tl-lg rounded-tr-lg bg-category-item-gradient">
+          {/* IMAGEM */}
           <Image
             src={category.imageUrl}
             alt={category.name}
